@@ -1,0 +1,232 @@
+/* Modo oscuro - Fondo tipo Vercel con cuadrícula animada */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(145deg, #0f172a, #1e1e2e);
+  background-size: 400% 400%;
+  animation: subtle-shift 15s ease infinite;
+}
+
+/* Overlay de cuadrícula con movimiento diagonal */
+.grid-overlay {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-size: 40px 40px;
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  animation: diagonal-move 120s linear infinite;
+  pointer-events: none;
+}
+
+/* Efectos de luz con blur */
+.light-effect {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.08;  /* Reducida la opacidad para que sea más sutil */
+  pointer-events: none;
+  transition: background 5s ease;  /* Transición suave para cambios de color */
+}
+
+.light-effect-1 {
+  top: 20%;
+  left: 15%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
+  animation: float-light-1 25s ease-in-out infinite alternate, color-shift-1 30s infinite alternate;
+}
+
+.light-effect-2 {
+  top: 50%;
+  right: 20%;
+  width: 35%;
+  height: 35%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
+  animation: float-light-2 28s ease-in-out infinite alternate, color-shift-2 40s infinite alternate;
+}
+
+.light-effect-3 {
+  bottom: 10%;
+  left: 30%;
+  width: 45%;
+  height: 45%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
+  animation: float-light-3 32s ease-in-out infinite alternate, color-shift-3 35s infinite alternate;
+}
+
+/* Versión para modo claro */
+.light-mode .animated-background {
+  background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+  background-size: 400% 400%;
+}
+
+.light-mode .grid-overlay {
+  background-image: 
+    radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.light-mode .light-effect {
+  opacity: 0.05;  /* Aún más sutil en modo claro */
+}
+
+.light-mode .light-effect-1 {
+  animation: float-light-1 25s ease-in-out infinite alternate, color-shift-1-light 30s infinite alternate;
+}
+
+.light-mode .light-effect-2 {
+  animation: float-light-2 28s ease-in-out infinite alternate, color-shift-2-light 40s infinite alternate;
+}
+
+.light-mode .light-effect-3 {
+  animation: float-light-3 32s ease-in-out infinite alternate, color-shift-3-light 35s infinite alternate;
+}
+
+@keyframes subtle-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes diagonal-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-33.33%, -33.33%);
+  }
+}
+
+/* Animaciones de flotación más sutiles */
+@keyframes float-light-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(3%, 3%);  /* Movimiento reducido */
+  }
+}
+
+@keyframes float-light-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-3%, 3%);  /* Movimiento reducido */
+  }
+}
+
+@keyframes float-light-3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(3%, -3%);  /* Movimiento reducido */
+  }
+}
+
+/* Animaciones de cambio de color - Modo oscuro */
+@keyframes color-shift-1 {
+  0% {
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.8), rgba(192, 132, 252, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.8), rgba(34, 211, 238, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
+  }
+}
+
+@keyframes color-shift-2 {
+  0% {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.8), rgba(236, 72, 153, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.8), rgba(79, 70, 229, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
+  }
+}
+
+@keyframes color-shift-3 {
+  0% {
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.7), rgba(16, 185, 129, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.7), rgba(99, 102, 241, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
+  }
+}
+
+/* Animaciones de cambio de color - Modo claro */
+@keyframes color-shift-1-light {
+  0% {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.4), rgba(168, 85, 247, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.4), rgba(6, 182, 212, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0));
+  }
+}
+
+@keyframes color-shift-2-light {
+  0% {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.4), rgba(124, 58, 237, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(219, 39, 119, 0.4), rgba(219, 39, 119, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(67, 56, 202, 0.4), rgba(67, 56, 202, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.4), rgba(124, 58, 237, 0));
+  }
+}
+
+@keyframes color-shift-3-light {
+  0% {
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.4), rgba(2, 132, 199, 0));
+  }
+  33% {
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.4), rgba(5, 150, 105, 0));
+  }
+  66% {
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.4), rgba(79, 70, 229, 0));
+  }
+  100% {
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.4), rgba(2, 132, 199, 0));
+  }
+}
