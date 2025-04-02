@@ -9,7 +9,9 @@ from .colors import (
     background_colors, 
     border_colors, 
     gradients,
-    dark_mode
+    dark_mode,
+    glass_effects,
+    transparent_colors
 )
 from .font import (
     text_styles, 
@@ -218,7 +220,7 @@ button_styles = {
         "padding": "0",
         "height": "auto",
         "_hover": {
-            "text_decoration": "underline",
+            "text_decoration": "none",
             "color": text_colors["link_hover"],
         },
     },
@@ -438,12 +440,12 @@ nav_styles = {
         "justify_content": "space-between",
         "padding_x": spacing["4"],
         "padding_y": spacing["3"],
-        "background_color": background_colors["default"],
+        "background_color": transparent_colors["glass_dark"],
         "border_bottom": f"1px solid {border_colors['default']}",
         "position": "sticky",
         "top": "0",
         "z_index": "1000",
-        "backdrop_filter": "blur(8px)",
+        "backdrop_filter": "blur(3px)",
     },
 }
 
@@ -453,15 +455,16 @@ nav_styles = {
         "width": "100%",
         "display": "flex",
         "align_items": "center",
-        "justify_content": "space-between",
+        "justify_content": "space_between",
         "padding_x": spacing["4"],
         "padding_y": spacing["3"],
-        "background_color": background_colors["default"],
-        "border_bottom": f"1px solid {border_colors['default']}",
+        "background_color": glass_effects["navbar"]["light"]["background"],
+        "border_bottom": f"1px solid {glass_effects['navbar']['light']['border_color']}",
         "position": "sticky",
         "top": "0",
         "z_index": "1000",
-        "backdrop_filter": "blur(8px)",
+        "backdrop_filter": glass_effects["navbar"]["light"]["backdrop_filter"],
+        "box_shadow": shadows["sm"],
     },
     "navbar_brand": {
         "font_size": font_sizes["xl"],

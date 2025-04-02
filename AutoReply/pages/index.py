@@ -2,27 +2,25 @@
 
 import reflex as rx
 from AutoReply.styles.background import animated_background
-from AutoReply.styles.colors import gradients
+from AutoReply.styles.colors import text_colors
 from AutoReply.styles.style import apply_text_style
+
+from AutoReply.components.navbar import navbar
 
 
 def index():
     """Renders the application's home page."""
 
     return rx.box(
+        animated_background(),
+        navbar(),
         rx.center(
-            animated_background(),
             rx.text(
-                "AutoReply- Test",
+                "En desarrollo",
                 style={
-                    **apply_text_style("h1"),
-                    "background_image": gradients["primary"],
-                    "background_clip": "text",
-                    "-webkit-background-clip": "text",
-                    "color": "transparent",
-                    "-webkit-text-fill-color": "transparent",
-                    "padding_x": "2rem",
-                }
+                    **apply_text_style("h2"),
+                },
+                color = text_colors['subtle']
             ),
         )
     )
