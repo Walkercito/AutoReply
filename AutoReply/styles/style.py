@@ -211,7 +211,7 @@ button_styles = {
         "background_color": "transparent",
         "color": text_colors["primary"],
         "_hover": {
-            "background_color": background_colors["primary_light"],
+            "background_color": background_colors["primary_dark"],
         },
     },
     "link": {
@@ -239,6 +239,7 @@ button_styles = {
     "gradient": {
         "background": gradients["primary_to_secondary"],
         "color": text_colors["white"],
+        "border_radius": spacing["3"]
     },
     "sizes": {
         "xs": {

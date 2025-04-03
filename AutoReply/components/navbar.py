@@ -17,8 +17,9 @@ def navbar() -> rx.Component:
         **nav_styles["navbar"],
         "backdrop_filter": glass_effects["navbar"]["dark"]["backdrop_filter"],
         "background_color": glass_effects["navbar"]["dark"]["background"],
-        "border_bottom": f"1px solid {glass_effects['navbar']['dark']['border_color']}",
+        "border": f"1px solid {glass_effects['navbar']['dark']['border_color']}",
         "box_shadow": shadows["sm"],
+        "border_radius": spacing['3'],
     }
     
     navbar_brand = rx.hstack(
@@ -187,6 +188,9 @@ def navbar() -> rx.Component:
             width = "100%",
             padding = spacing["3"],
             spacing = "1",
+            style = {
+                "border_radius": spacing['3']
+            }
         )
     
     return rx.box(

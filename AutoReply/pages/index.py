@@ -2,8 +2,8 @@
 
 import reflex as rx
 from AutoReply.styles.background import animated_background
-from AutoReply.styles.colors import text_colors
-from AutoReply.styles.style import apply_text_style
+from AutoReply.styles.colors import dark_mode
+from AutoReply.styles.style import apply_text_style, spacing
 
 from AutoReply.components.navbar import navbar
 
@@ -20,7 +20,8 @@ def index():
                 style={
                     **apply_text_style("h2"),
                 },
-                color = text_colors['subtle']
+                color = dark_mode['text']['default']
             ),
-        )
+        ),
+        padding = spacing['3']
     )
