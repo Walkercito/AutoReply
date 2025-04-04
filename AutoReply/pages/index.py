@@ -11,15 +11,23 @@ from AutoReply.views.header import header
 
 def index():
     """Renders the application's home page."""
-
     return rx.box(
         animated_background(),
         rx.box(
             navbar(),
-            margin_top = spacing['4'], 
-            margin_x = spacing['4'],
-            width = "auto",
+            margin_top=spacing["4"],
+            margin_x=spacing["4"],
+            width="auto",
         ),
-        header(),
-        width = "100%"
+        rx.center(
+            rx.box(
+                header(),
+                width="100%",
+                max_width="1200px",
+                padding_x=spacing["4"],
+                margin_top=spacing["4"],
+            ),
+            width="100%",
+        ),
+        width="100%",
     )
