@@ -216,4 +216,5 @@ gradients = {
     "success": f"linear-gradient(90deg, {colors['success']['500']} 0%, {colors['success']['700']} 100%)",
     "warning": f"linear-gradient(90deg, {colors['warning']['500']} 0%, {colors['warning']['700']} 100%)",
     "error": f"linear-gradient(90deg, {colors['error']['500']} 0%, {colors['error']['700']} 100%)",
+    "whatsapp": f"linear-gradient(90deg, #25D366 0%, #128C7E 100%)",  # Colores oficiales de WhatsApp: verde claro a verde oscuro
 }

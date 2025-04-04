@@ -2,11 +2,12 @@
 
 import reflex as rx
 from AutoReply.pages.index import index
-from AutoReply.styles.style import STYLESHEETS
+from AutoReply.styles.style import STYLESHEETS, base_style
 
 
 app = rx.App(
-    stylesheets=STYLESHEETS
+    style = base_style,
+    stylesheets = STYLESHEETS
 )
 
 app.add_page(

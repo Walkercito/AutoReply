@@ -279,7 +279,7 @@ button_styles = {
 # Card styles
 card_styles = {
     "base": {
-        "background_color": background_colors["default"],
+        "background_color": background_colors["primary_dark"],
         "border_radius": border_radius["lg"],
         "box_shadow": shadows["md"],
         "overflow": "hidden",

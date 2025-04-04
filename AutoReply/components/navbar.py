@@ -92,7 +92,7 @@ def navbar() -> rx.Component:
             }
         ),
         display = ["none", "none", "flex", "flex"],
-        gap = spacing["4"],
+        gap = "4",
     )
 
     desktop_action_button = rx.button(
@@ -106,8 +106,8 @@ def navbar() -> rx.Component:
     mobile_menu_button = rx.button(
         rx.cond(
             NavbarState.is_menu_open,
-            rx.icon("x", font_size = font_sizes["xl"]),  
-            rx.icon("menu", font_size = font_sizes["xl"])  
+            rx.icon("x", font_size = font_sizes["xl"], color = text_colors['white']),  
+            rx.icon("menu", font_size = font_sizes["xl"], color = text_colors['white'])  
         ),
         on_click = NavbarState.toggle_menu,
         style = {
@@ -187,7 +187,7 @@ def navbar() -> rx.Component:
             ),
             width = "100%",
             padding = spacing["3"],
-            spacing = "1",
+            spacing = "1",  
             style = {
                 "border_radius": spacing['3']
             }
