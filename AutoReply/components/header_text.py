@@ -1,26 +1,76 @@
-"""Header text component with WhatsApp gradient effect."""
-
 import reflex as rx
 from AutoReply.styles.colors import dark_mode, gradients
 
 def header_text(size: str = "h2") -> rx.Component:
     """Renders the header text with WhatsApp gradient effect"""
-    return rx.heading(
-        rx.text("Automatiza tus respuestas en ", color=dark_mode["text"]["default"]),
-        rx.text(
-            "WhatsApp",
-            background_image=gradients["whatsapp"],
-            background_clip="text",
-            color="transparent",
-            font_weight="bold",
-        ),
-        rx.text(" de manera sencilla", color=dark_mode["text"]["default"]),
-        font_size=["2.5rem", "3rem", "4rem", "5rem"],
-        line_height=["5rem", "5.5rem", "6.5rem", "7.5rem"],
-        font_weight="extrabold",
-        letter_spacing="tight",
-        text_align="left",
-        width="100%",
-        max_width="800px",
+    
+    # Vista para Desktop
+    desktop_text = rx.desktop_only(
+        rx.heading(
+            "Automatiza tus respuestas en ", 
+            rx.text.strong(
+                "WhatsApp",
+                background_image=gradients["whatsapp"],
+                background_clip="text",
+                color="transparent",
+                font_weight="bold"
+            ),
+            " de manera sencilla.",
+            as_="div",
+            color=dark_mode["text"]["default"],
+            weight="bold",
+            size="9",
+            z_index="10",  # Valor mayor para asegurar que esté encima del card
+            text_align="left",
+        )
     )
     
+    # Vista para Tablet
+    tablet_text = rx.tablet_only(
+        rx.heading(
+            "Automatiza tus respuestas en ", 
+            rx.text.strong(
+                "WhatsApp",
+                background_image=gradients["whatsapp"],
+                background_clip="text",
+                color="transparent",
+                font_weight="bold"
+            ),
+            " de manera sencilla.",
+            as_="div",
+            color=dark_mode["text"]["default"],
+            weight="bold",
+            size="7",
+            z_index="10",
+            text_align="center",  # Centrado para tablet
+        )
+    )
+    
+    # Vista para Mobile - CAMBIO A CENTRADO
+    mobile_text = rx.mobile_only(
+        rx.heading(
+            "Automatiza tus respuestas en ", 
+            rx.text.strong(
+                "WhatsApp",
+                background_image=gradients["whatsapp"],
+                background_clip="text",
+                color="transparent",
+                font_weight="bold"
+            ),
+            " de manera sencilla.",
+            as_="div",
+            color=dark_mode["text"]["default"],
+            weight="bold",
+            size="5",
+            z_index="10",
+            text_align="center",  # Cambiado a centrado para móviles
+        )
+    )
+    
+    return rx.box(
+        desktop_text,
+        tablet_text,
+        mobile_text,
+        width="100%",
+        position="relative",  # Necesario para z-index
+    )
