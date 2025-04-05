@@ -110,16 +110,17 @@ def header() -> rx.Component:
     desktop_layout = rx.desktop_only(
         rx.box( 
             header_text(size="h1"),
-            padding_y="12",
-            margin_top="4",
-            padding_left="0",
-            width="100%",
-            max_width="800px",
-            position="relative",
-            z_index="10",
-            display="flex",
-            right="22%",
-            justify_content="flex-start",
+            padding_y = "12",
+            margin_top = "4",
+            padding_left = "0",
+            width = "100%",
+            max_width = "800px",
+            position = "relative",
+            z_index = "10",
+            display = "flex",
+            right = "22%",
+            justify_content = "flex-start",
+            overflow = "hidden",
         ),
     )
 
@@ -160,8 +161,6 @@ def header() -> rx.Component:
             rx.box(
                 desktop_layout,
                 background_card,
-                
-
                 tablet_layout,
                 mobile_layout,
                 
@@ -171,5 +170,5 @@ def header() -> rx.Component:
             ),
             **container_styles["base"],
         ),
-        width="100%",
+        width = "100%",
     )

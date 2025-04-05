@@ -29,5 +29,5 @@ def index():
             ),
             width = "100%",
         ),
-        width = "100%",
+        width ="100%",
     )
