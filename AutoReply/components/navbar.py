@@ -1,5 +1,3 @@
-"""Navigation bar component module for AutoReply application."""
-
 import reflex as rx
 from AutoReply.styles.colors import text_colors, background_colors, border_colors, gradients, glass_effects, transparent_colors, dark_mode
 from AutoReply.styles.style import nav_styles, apply_button_style, apply_text_style, layout_styles, spacing, responsive_styles, shadows
