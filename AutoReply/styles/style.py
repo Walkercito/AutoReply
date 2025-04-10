@@ -1,5 +1,5 @@
 """
-Style configuration for the Reflex application.
+Style configuration for the AutoReply-Lite Reflex application.
 This module defines reusable style classes for common elements.
 """
 
@@ -9,7 +9,6 @@ from .colors import (
     background_colors, 
     border_colors, 
     gradients,
-    dark_mode,
     glass_effects,
     transparent_colors
 )
@@ -27,7 +26,7 @@ base_style = {
     "font_size": font_sizes["base"],
     "line_height": line_heights["normal"],
     "color": text_colors["default"],
-    "background_color": background_colors["default"],
+    #"background_color": background_colors["default"],
     "transition": "all 0.3s ease",
 }
 
@@ -47,10 +46,6 @@ spacing = {
     "20": "5rem",
     "24": "6rem",
     "32": "8rem",
-    "40": "10rem",
-    "48": "12rem",
-    "56": "14rem",
-    "64": "16rem",
 }
 
 # Border radius values
@@ -67,12 +62,10 @@ border_radius = {
 
 # Shadow values
 shadows = {
-    "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-    "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-    "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-    "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-    "inner": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+    "sm": "0 1px 2px 0 rgba(44, 40, 36, 0.05)",
+    "md": "0 4px 6px -1px rgba(44, 40, 36, 0.1), 0 2px 4px -1px rgba(44, 40, 36, 0.06)",
+    "lg": "0 10px 15px -3px rgba(44, 40, 36, 0.1), 0 4px 6px -2px rgba(44, 40, 36, 0.05)",
+    "xl": "0 20px 25px -5px rgba(44, 40, 36, 0.1), 0 10px 10px -5px rgba(44, 40, 36, 0.04)",
     "none": "none",
 }
 
@@ -93,12 +86,6 @@ container_styles = {
         "margin_x": "auto",
         "padding_x": spacing["4"],
         "max_width": "768px",
-    },
-    "wide": {
-        "width": "100%",
-        "margin_x": "auto",
-        "padding_x": spacing["4"],
-        "max_width": "1400px",
     },
 }
 
@@ -126,11 +113,6 @@ text_element_styles = {
     },
     "h5": {
         **text_styles["h5"],
-        "color": text_colors["default"],
-        "margin_y": spacing["2"],
-    },
-    "h6": {
-        **text_styles["h6"],
         "color": text_colors["default"],
         "margin_y": spacing["2"],
     },
@@ -174,9 +156,6 @@ button_styles = {
         "_active": {
             "transform": "translateY(0px)",
         },
-        "_focus": {
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
-        },
         "_disabled": {
             "opacity": "0.6",
             "cursor": "not-allowed",
@@ -186,32 +165,25 @@ button_styles = {
         },
     },
     "primary": {
-        "background_color": background_colors["primary"],
-        "color": text_colors["white"],
+        "background_color": background_colors["sand_dark"],
+        "color": background_colors["sand_light"],
         "_hover": {
-            "background_color": background_colors["primary_dark"],
-        },
-    },
-    "secondary": {
-        "background_color": background_colors["secondary"],
-        "color": text_colors["white"],
-        "_hover": {
-            "background_color": background_colors["secondary_dark"],
+            "background_color": "rgba(44, 40, 36, 0.9)",
         },
     },
     "outline": {
         "background_color": "transparent",
-        "color": text_colors["primary"],
-        "border": f"1px solid {border_colors['primary']}",
+        "color": text_colors["default"],
+        "border": f"1px solid {border_colors['sand_dark']}",
         "_hover": {
-            "background_color": background_colors["primary_light"],
+            "background_color": "rgba(44, 40, 36, 0.05)",
         },
     },
     "ghost": {
         "background_color": "transparent",
-        "color": text_colors["primary"],
+        "color": text_colors["default"],
         "_hover": {
-            "background_color": background_colors["primary_dark"],
+            "background_color": "rgba(44, 40, 36, 0.05)",
         },
     },
     "link": {
@@ -235,11 +207,6 @@ button_styles = {
     "error": {
         "background_color": background_colors["error"],
         "color": text_colors["white"],
-    },
-    "gradient": {
-        "background": gradients["primary_to_secondary"],
-        "color": text_colors["white"],
-        "border_radius": spacing["3"]
     },
     "sizes": {
         "xs": {
@@ -266,24 +233,17 @@ button_styles = {
             "padding_y": spacing["3"],
             "height": "3rem",
         },
-        "xl": {
-            **text_styles["button_large"],
-            "padding_x": spacing["8"],
-            "padding_y": spacing["4"],
-            "height": "3.5rem",
-            "font_size": font_sizes["lg"],
-        },
     },
 }
 
 # Card styles
 card_styles = {
     "base": {
-        "background_color": background_colors["primary_dark"],
+        "background_color": background_colors["sand_dark"],
+        "color": background_colors["sand_light"],
         "border_radius": border_radius["lg"],
         "box_shadow": shadows["md"],
         "overflow": "hidden",
-        "border": f"1px solid {border_colors['default']}",
         "transition": "all 0.3s ease",
     },
     "interactive": {
@@ -300,6 +260,31 @@ card_styles = {
     "elevated": {
         "box_shadow": shadows["lg"],
     },
+    "pricing": {
+        "background_color": background_colors["sand_dark"],
+        "color": background_colors["sand_light"],
+        "border_radius": border_radius["xl"],
+        "overflow": "hidden",
+        "display": "flex",
+        "flex_direction": "column",
+    },
+    "pricing_featured": {
+        "position": "relative",
+        "box_shadow": shadows["xl"],
+        "z_index": "1",
+    },
+    "pricing_header": {
+        "padding": spacing["6"],
+        "background_color": background_colors["sand_dark"],
+        "color": background_colors["sand_light"],
+    },
+    "pricing_footer": {
+        "padding": spacing["4"],
+        "background_color": background_colors["sand_light"],
+        "color": background_colors["sand_dark"],
+        "border_top": f"1px solid {border_colors['default']}",
+        "text_align": "center",
+    },
 }
 
 # Form element styles
@@ -315,8 +300,7 @@ form_styles = {
         "color": text_colors["default"],
         "transition": "all 0.3s ease",
         "_focus": {
-            "border_color": border_colors["primary"],
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
+            "border_color": border_colors["sand_dark"],
             "outline": "none",
         },
         "_hover": {
@@ -330,123 +314,6 @@ form_styles = {
         "_placeholder": {
             "color": text_colors["subtle"],
         },
-    },
-    "select": {
-        "width": "100%",
-        "padding": spacing["3"],
-        "border_radius": border_radius["md"],
-        "border": f"1px solid {border_colors['default']}",
-        "background_color": background_colors["default"],
-        "font_size": font_sizes["base"],
-        "line_height": line_heights["normal"],
-        "color": text_colors["default"],
-        "transition": "all 0.3s ease",
-        "_focus": {
-            "border_color": border_colors["primary"],
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
-            "outline": "none",
-        },
-        "_hover": {
-            "border_color": border_colors["muted"],
-        },
-        "_disabled": {
-            "background_color": background_colors["muted"],
-            "cursor": "not-allowed",
-            "opacity": "0.6",
-        },
-    },
-    "textarea": {
-        "width": "100%",
-        "padding": spacing["3"],
-        "border_radius": border_radius["md"],
-        "border": f"1px solid {border_colors['default']}",
-        "background_color": background_colors["default"],
-        "font_size": font_sizes["base"],
-        "line_height": line_heights["normal"],
-        "color": text_colors["default"],
-        "transition": "all 0.3s ease",
-        "min_height": "100px",
-        "_focus": {
-            "border_color": border_colors["primary"],
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
-            "outline": "none",
-        },
-        "_hover": {
-            "border_color": border_colors["muted"],
-        },
-        "_disabled": {
-            "background_color": background_colors["muted"],
-            "cursor": "not-allowed",
-            "opacity": "0.6",
-        },
-        "_placeholder": {
-            "color": text_colors["subtle"],
-        },
-    },
-    "checkbox": {
-        "cursor": "pointer",
-        "width": "1em",
-        "height": "1em",
-        "margin_right": spacing["2"],
-        "_checked": {
-            "background_color": background_colors["primary"],
-            "border_color": border_colors["primary"],
-        },
-        "_focus": {
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
-            "outline": "none",
-        },
-    },
-    "radio": {
-        "cursor": "pointer",
-        "width": "1em",
-        "height": "1em",
-        "margin_right": spacing["2"],
-        "_checked": {
-            "background_color": background_colors["primary"],
-            "border_color": border_colors["primary"],
-        },
-        "_focus": {
-            "box_shadow": f"0 0 0 3px {background_colors['primary_light']}",
-            "outline": "none",
-        },
-    },
-    "label": {
-        **text_styles["body"],
-        "font_weight": font_weights["medium"],
-        "margin_bottom": spacing["1"],
-        "display": "block",
-    },
-    "form_group": {
-        "margin_bottom": spacing["4"],
-    },
-    "form_error": {
-        **text_styles["caption"],
-        "color": text_colors["error"],
-        "margin_top": spacing["1"],
-    },
-    "form_helper": {
-        **text_styles["caption"],
-        "color": text_colors["muted"],
-        "margin_top": spacing["1"],
-    },
-}
-
-# Navigation styles
-nav_styles = {
-    "navbar": {
-        "width": "100%",
-        "display": "flex",
-        "align_items": "center",
-        "justify_content": "space-between",
-        "padding_x": spacing["4"],
-        "padding_y": spacing["3"],
-        "background_color": transparent_colors["glass_dark"],
-        "border_bottom": f"1px solid {border_colors['default']}",
-        "position": "sticky",
-        "top": "0",
-        "z_index": "1000",
-        "backdrop_filter": "blur(3px)",
     },
 }
 
@@ -457,18 +324,35 @@ nav_styles = {
         "display": "flex",
         "align_items": "center",
         "justify_content": "space_between",
+        "padding_x": spacing["6"],
+        "padding_y": spacing["4"],
+        "background_color": glass_effects["navbar"]["background"],
+        "border_radius": border_radius["2xl"],
+        "border": f"1px solid {glass_effects['navbar']['border_color']}",
+        "position": "sticky",
+        "top": spacing["4"],
+        "z_index": "1000",
+        "backdrop_filter": glass_effects["navbar"]["backdrop_filter"],
+        "box_shadow": shadows["sm"],
+        "margin_x": "auto",
+        "max_width": "1200px",
+    },
+    "navbar_mobile": {
+        "width": "100%",
+        "display": "flex",
+        "align_items": "center",
+        "justify_content": "space_between",
         "padding_x": spacing["4"],
         "padding_y": spacing["3"],
-        "background_color": glass_effects["navbar"]["light"]["background"],
-        "border_bottom": f"1px solid {glass_effects['navbar']['light']['border_color']}",
+        "background_color": glass_effects["navbar"]["background"],
+        "border_bottom": f"1px solid {glass_effects['navbar']['border_color']}",
         "position": "sticky",
         "top": "0",
         "z_index": "1000",
-        "backdrop_filter": glass_effects["navbar"]["light"]["backdrop_filter"],
-        "box_shadow": shadows["sm"],
+        "backdrop_filter": glass_effects["navbar"]["backdrop_filter"],
     },
     "navbar_brand": {
-        "font_size": font_sizes["xl"],
+        "font_size": font_sizes["2xl"],
         "font_weight": font_weights["bold"],
         "color": text_colors["default"],
         "text_decoration": "none",
@@ -487,62 +371,189 @@ nav_styles = {
         "padding_y": spacing["2"],
         "transition": "all 0.2s ease",
         "_hover": {
-            "color": text_colors["primary"],
+            "opacity": "0.8",
         },
         "_active": {
-            "color": text_colors["primary"],
+            "font_weight": font_weights["semibold"],
         },
     },
-    "sidebar": {
-        "width": "250px",
-        "height": "100vh",
-        "position": "fixed",
-        "top": "0",
-        "left": "0",
-        "background_color": background_colors["default"],
-        "border_right": f"1px solid {border_colors['default']}",
+    "mobile_menu": {
+        "background_color": glass_effects["navbar"]["background"],
+        "border_bottom": f"1px solid {glass_effects['navbar']['border_color']}",
         "padding": spacing["4"],
-        "overflow_y": "auto",
-    },
-    "sidebar_item": {
-        "display": "block",
-        "padding_y": spacing["2"],
-        "padding_x": spacing["3"],
-        "margin_y": spacing["1"],
-        "border_radius": border_radius["md"],
-        "color": text_colors["default"],
-        "text_decoration": "none",
-        "transition": "all 0.2s ease",
-        "_hover": {
-            "background_color": background_colors["muted"],
-            "color": text_colors["primary"],
-        },
-        "_active": {
-            "background_color": background_colors["primary_light"],
-            "color": text_colors["primary"],
-        },
-    },
-    "tabs": {
         "display": "flex",
-        "border_bottom": f"1px solid {border_colors['default']}",
-        "margin_bottom": spacing["4"],
+        "flex_direction": "column",
+        "gap": spacing["3"],
     },
-    "tab": {
-        "padding_x": spacing["4"],
-        "padding_y": spacing["2"],
-        "font_weight": font_weights["medium"],
+}
+
+# Hero section styles
+hero_styles = {
+    "container": {
+        "padding_y": spacing["12"],
+        "display": "grid",
+        "grid_template_columns": "1fr",
+        "gap": spacing["12"],
+        "@media (min-width: 992px)": {
+            "grid_template_columns": "1fr 1fr",
+            "gap": spacing["16"],
+        },
+    },
+    "content": {
+        "display": "flex",
+        "flex_direction": "column",
+        "justify_content": "center",
+        "gap": spacing["4"],
+    },
+    "title": {
+        **text_styles["h1"],
+        "color": text_colors["default"],
+    },
+    "description": {
+        **text_styles["body"],
         "color": text_colors["muted"],
-        "border_bottom": "2px solid transparent",
-        "margin_bottom": "-1px",
-        "cursor": "pointer",
-        "transition": "all 0.2s ease",
+        "max_width": "600px",
+        "font_size": font_sizes["xl"],
+    },
+    "buttons": {
+        "display": "flex",
+        "flex_direction": "column",
+        "gap": spacing["2"],
+        "@media (min-width: 400px)": {
+            "flex_direction": "row",
+        },
+    },
+    "image_container": {
+        "display": "flex",
+        "align_items": "center",
+        "justify_content": "center",
+        "position": "relative",
+    },
+    "image_wrapper": {
+        "position": "relative",
+        "border_radius": border_radius["3xl"],
+        "overflow": "hidden",
+        "border": f"1px solid {border_colors['default']}",
+    },
+}
+
+# Pricing section styles
+pricing_styles = {
+    "container": {
+        "padding_y": spacing["12"],
+    },
+    "header": {
+        "text_align": "center",
+        "max_width": "3xl",
+        "margin_x": "auto",
+        "margin_bottom": spacing["12"],
+    },
+    "title": {
+        **text_styles["h2"],
+        "color": text_colors["default"],
+    },
+    "description": {
+        **text_styles["body"],
+        "color": text_colors["muted"],
+        "margin_top": spacing["4"],
+        "font_size": font_sizes["xl"],
+    },
+    "grid": {
+        "display": "grid",
+        "grid_template_columns": "1fr",
+        "gap": spacing["8"],
+        "max_width": "4xl",
+        "margin_x": "auto",
+        "@media (min-width: 768px)": {
+            "grid_template_columns": "1fr 1fr",
+        },
+    },
+    "feature_list": {
+        "space_y": spacing["3"],
+        "margin_y": spacing["6"],
+    },
+    "feature_item": {
+        "display": "flex",
+        "align_items": "center",
+        "gap": spacing["2"],
+    },
+    "price": {
+        "font_size": font_sizes["2xl"],
+        "font_weight": font_weights["bold"],
+    },
+    "price_period": {
+        "font_size": font_sizes["sm"],
+        "opacity": "0.8",
+    },
+    "badge": {
+        "position": "absolute",
+        "top": spacing["4"],
+        "right": spacing["4"],
+        "background_color": background_colors["sand_light"],
+        "color": background_colors["sand_dark"],
+        "font_size": font_sizes["xs"],
+        "font_weight": font_weights["bold"],
+        "padding_x": spacing["2"],
+        "padding_y": spacing["1"],
+        "border_radius": border_radius["full"],
+    },
+}
+
+# Footer styles
+footer_styles = {
+    "container": {
+        "border_top": f"1px solid {border_colors['default']}",
+        "background_color": background_colors["default"],
+    },
+    "content": {
+        "padding_y": spacing["12"],
+    },
+    "grid": {
+        "display": "grid",
+        "grid_template_columns": "1fr",
+        "gap": spacing["8"],
+        "@media (min-width: 576px)": {
+            "grid_template_columns": "repeat(2, 1fr)",
+        },
+        "@media (min-width: 768px)": {
+            "grid_template_columns": "repeat(4, 1fr)",
+        },
+    },
+    "brand": {
+        "display": "inline-block",
+        "margin_bottom": spacing["4"],
+        "font_size": font_sizes["xl"],
+        "font_weight": font_weights["bold"],
+        "color": text_colors["default"],
+    },
+    "description": {
+        "font_size": font_sizes["sm"],
+        "color": text_colors["muted"],
+    },
+    "heading": {
+        "margin_bottom": spacing["4"],
+        "font_size": font_sizes["sm"],
+        "font_weight": font_weights["semibold"],
+        "color": text_colors["default"],
+    },
+    "link_list": {
+        "space_y": spacing["2"],
+        "font_size": font_sizes["sm"],
+    },
+    "link": {
+        "color": text_colors["muted"],
+        "text_decoration": "none",
         "_hover": {
             "color": text_colors["default"],
         },
-        "_selected": {
-            "color": text_colors["primary"],
-            "border_bottom_color": border_colors["primary"],
-        },
+    },
+    "copyright": {
+        "margin_top": spacing["8"],
+        "border_top": f"1px solid {border_colors['default']}",
+        "padding_top": spacing["8"],
+        "text_align": "center",
+        "font_size": font_sizes["xs"],
+        "color": text_colors["muted"],
     },
 }
 
@@ -567,7 +578,7 @@ layout_styles = {
     "flex_between": {
         "display": "flex",
         "align_items": "center",
-        "justify_content": "space-between",
+        "justify_content": "space_between",
     },
     "grid": {
         "display": "grid",
@@ -588,120 +599,7 @@ layout_styles = {
     },
 }
 
-# Utility styles
-utility_styles = {
-    "m": {
-        "margin": spacing["4"],
-    },
-    "mx": {
-        "margin_x": spacing["4"],
-    },
-    "my": {
-        "margin_y": spacing["4"],
-    },
-    "mt": {
-        "margin_top": spacing["4"],
-    },
-    "mr": {
-        "margin_right": spacing["4"],
-    },
-    "mb": {
-        "margin_bottom": spacing["4"],
-    },
-    "ml": {
-        "margin_left": spacing["4"],
-    },
-    "p": {
-        "padding": spacing["4"],
-    },
-    "px": {
-        "padding_x": spacing["4"],
-    },
-    "py": {
-        "padding_y": spacing["4"],
-    },
-    "pt": {
-        "padding_top": spacing["4"],
-    },
-    "pr": {
-        "padding_right": spacing["4"],
-    },
-    "pb": {
-        "padding_bottom": spacing["4"],
-    },
-    "pl": {
-        "padding_left": spacing["4"],
-    },
-    "rounded": {
-        "border_radius": border_radius["md"],
-    },
-    "rounded_sm": {
-        "border_radius": border_radius["sm"],
-    },
-    "rounded_lg": {
-        "border_radius": border_radius["lg"],
-    },
-    "rounded_xl": {
-        "border_radius": border_radius["xl"],
-    },
-    "rounded_full": {
-        "border_radius": border_radius["full"],
-    },
-    "shadow": {
-        "box_shadow": shadows["md"],
-    },
-    "shadow_sm": {
-        "box_shadow": shadows["sm"],
-    },
-    "shadow_lg": {
-        "box_shadow": shadows["lg"],
-    },
-    "shadow_xl": {
-        "box_shadow": shadows["xl"],
-    },
-    "shadow_none": {
-        "box_shadow": shadows["none"],
-    },
-}
-
-# Responsive styles
-responsive_styles = {
-    "hide_mobile": {
-        "@media screen and (max-width: 640px)": {
-            "display": "none",
-        },
-    },
-    "hide_tablet": {
-        "@media screen and (min-width: 641px) and (max-width: 1024px)": {
-            "display": "none",
-        },
-    },
-    "hide_desktop": {
-        "@media screen and (min-width: 1025px)": {
-            "display": "none",
-        },
-    },
-    "show_mobile": {
-        "@media screen and (min-width: 641px)": {
-            "display": "none",
-        },
-    },
-    "show_tablet": {
-        "@media screen and (max-width: 640px)": {
-            "display": "none",
-        },
-        "@media screen and (min-width: 1025px)": {
-            "display": "none",
-        },
-    },
-    "show_desktop": {
-        "@media screen and (max-width: 1024px)": {
-            "display": "none",
-        },
-    },
-}
-
-
+# Helper functions
 def apply_text_style(element_type="p"):
     """Apply text style to an element.
     
@@ -755,66 +653,8 @@ def apply_container_style(variant="base"):
     """
     return container_styles.get(variant, container_styles["base"])
 
-# Example usage
-def example_usage():
-    """Example of how to use the style configurations in Reflex components.
-    
-    This function demonstrates how to apply the style functions to create
-    styled Reflex components.
-    """
-    # Import the necessary modules
-    import reflex as rx
-    
-    # Define a component that uses the styles
-    def styled_button(text, variant="primary", size="md"):
-        """Create a styled button component.
-        
-        Args:
-            text (str): Button text
-            variant (str): Button style variant
-            size (str): Button size
-            
-        Returns:
-            rx.Component: Styled button component
-        """
-        return rx.button(
-            text,
-            style=apply_button_style(variant, size),
-        )
-    
-    def styled_card(title, content, variant="base"):
-        """Create a styled card component.
-        
-        Args:
-            title (str): Card title
-            content (str): Card content
-            variant (str): Card style variant
-            
-        Returns:
-            rx.Component: Styled card component
-        """
-        return rx.box(
-            rx.heading(title, style=apply_text_style("h3")),
-            rx.text(content, style=apply_text_style("p")),
-            style=apply_card_style(variant),
-        )
-    
-    def styled_container(children, variant="base"):
-        """Create a styled container component.
-        
-        Args:
-            children (list): Child components
-            variant (str): Container style variant
-            
-        Returns:
-            rx.Component: Styled container component
-        """
-        return rx.box(
-            *children,
-            style=apply_container_style(variant),
-        )
-
+# Stylesheets for external resources
 STYLESHEETS = [
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
     "/animated_background.css",
 ]

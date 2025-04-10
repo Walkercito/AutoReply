@@ -1,33 +1,35 @@
 """Home page of the AutoReply application."""
 
 import reflex as rx
+from AutoReply.styles.colors import background_colors
+from AutoReply.styles.style import spacing
 from AutoReply.styles.background import animated_background
-from AutoReply.styles.colors import dark_mode, gradients
-from AutoReply.styles.style import apply_text_style, spacing
 
 from AutoReply.components.navbar import navbar
-from AutoReply.views.header import header
 
 
 def index():
-    """Renders the application's home page."""
     return rx.box(
         animated_background(),
         rx.box(
-            navbar(),
-            margin_top = spacing["4"],
-            margin_x = spacing["4"],
-            width = "auto",
-        ),
-        rx.center(
             rx.box(
-                header(),
+                navbar(),
                 width = "100%",
-                max_width = "1200px",
-                padding_x = spacing["4"],
-                margin_top = spacing["4"],
+                padding_left = spacing['3'], 
+                padding_right = spacing['3'], 
+                padding_top = spacing['4'],
+                padding_bottom = spacing['4'], 
+                border_radius = spacing['3'], 
             ),
-            width = "100%",
+            margin_top = spacing['4'],
+            margin_left = spacing['3'],
+            margin_right = spacing['3'], 
+            width = "calc(100% - " + spacing['3'] + " - " + spacing['3'] + ")",
+            max_width = "100%",
+            z_index = "10"
         ),
-        width ="100%",
+        width = "100%",
+        height = "100vh",
+        overflow = "hidden",
+        position = "relative"
     )

@@ -1,5 +1,5 @@
 import reflex as rx
-from AutoReply.styles.colors import dark_mode, gradients
+from AutoReply.styles.colors import text_colors, gradients
 
 def header_text(size: str = "h2") -> rx.Component:
     desktop_text = rx.desktop_only(
@@ -14,7 +14,7 @@ def header_text(size: str = "h2") -> rx.Component:
             ),
             " de manera sencilla.",
             as_ = "div",
-            color = dark_mode["text"]["default"],
+            color = text_colors["default"],
             weight = "bold",
             size = "9",
             z_index = "10",
@@ -34,7 +34,7 @@ def header_text(size: str = "h2") -> rx.Component:
             ),
             " de manera sencilla.",
             as_ = "div",
-            color = dark_mode["text"]["default"],
+            color = text_colors["default"],
             weight = "bold",
             size = "7",
             z_index = "10",
@@ -54,7 +54,7 @@ def header_text(size: str = "h2") -> rx.Component:
             ),
             " de manera sencilla.",
             as_ = "div",
-            color = dark_mode["text"]["default"],
+            color = text_colors["default"],
             weight = "bold",
             size = "5",
             z_index = "10",

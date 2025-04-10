@@ -1,5 +1,5 @@
 """
-Font configuration for the Reflex application.
+Font configuration for the AutoReply-Lite Reflex application.
 This module defines font families, sizes, weights, and line heights.
 """
 
@@ -22,22 +22,16 @@ font_sizes = {
     "4xl": "2.25em",   # 36px at 16px base
     "5xl": "3em",      # 48px at 16px base
     "6xl": "3.75em",   # 60px at 16px base
-    "7xl": "4.5em",    # 72px at 16px base
-    "8xl": "6em",      # 96px at 16px base
-    "9xl": "8em",      # 128px at 16px base
 }
 
 # Font weights
 font_weights = {
-    "thin": "100",
-    "extralight": "200",
     "light": "300",
     "normal": "400",
     "medium": "500",
     "semibold": "600",
     "bold": "700",
     "extrabold": "800",
-    "black": "900",
 }
 
 # Line heights
@@ -97,13 +91,6 @@ text_styles = {
         "line_height": line_heights["normal"],
         "letter_spacing": letter_spacing["normal"],
     },
-    "h6": {
-        "font_family": font_families["sans"],
-        "font_size": font_sizes["lg"],
-        "font_weight": font_weights["semibold"],
-        "line_height": line_heights["normal"],
-        "letter_spacing": letter_spacing["normal"],
-    },
     "body": {
         "font_family": font_families["sans"],
         "font_size": font_sizes["base"],
@@ -146,20 +133,6 @@ text_styles = {
         "line_height": line_heights["none"],
         "letter_spacing": letter_spacing["wide"],
     },
-    "link": {
-        "font_family": font_families["sans"],
-        "font_size": font_sizes["base"],
-        "font_weight": font_weights["medium"],
-        "line_height": line_heights["normal"],
-        "letter_spacing": letter_spacing["normal"],
-    },
-    "code": {
-        "font_family": font_families["mono"],
-        "font_size": font_sizes["sm"],
-        "font_weight": font_weights["normal"],
-        "line_height": line_heights["normal"],
-        "letter_spacing": letter_spacing["normal"],
-    },
 }
 
 # Responsive font sizes for different breakpoints
@@ -170,7 +143,6 @@ responsive_font_sizes = {
         "h3": font_sizes["2xl"],
         "h4": font_sizes["xl"],
         "h5": font_sizes["lg"],
-        "h6": font_sizes["base"],
     },
     "tablet": {
         "h1": font_sizes["5xl"],
@@ -178,7 +150,6 @@ responsive_font_sizes = {
         "h3": font_sizes["3xl"],
         "h4": font_sizes["2xl"],
         "h5": font_sizes["xl"],
-        "h6": font_sizes["lg"],
     },
     "desktop": {
         "h1": font_sizes["5xl"],
@@ -186,7 +157,6 @@ responsive_font_sizes = {
         "h3": font_sizes["3xl"],
         "h4": font_sizes["2xl"],
         "h5": font_sizes["xl"],
-        "h6": font_sizes["lg"],
     },
 }
 

@@ -1,7 +1,7 @@
 import reflex as rx
-from AutoReply.styles.colors import text_colors, background_colors, border_colors, gradients, glass_effects, transparent_colors, dark_mode
-from AutoReply.styles.style import nav_styles, apply_button_style, apply_text_style, layout_styles, spacing, responsive_styles, shadows
-from AutoReply.styles.font import font_weights, font_sizes
+from AutoReply.styles.colors import text_colors, gradients, glass_effects
+from AutoReply.styles.style import nav_styles, apply_button_style, apply_text_style, spacing, shadows
+from AutoReply.styles.font import font_sizes
 
 
 class NavbarState(rx.State):
@@ -10,33 +10,30 @@ class NavbarState(rx.State):
     def toggle_menu(self):
         self.is_menu_open = not self.is_menu_open
 
+
 def navbar() -> rx.Component:
     glassy_navbar_style = {
         **nav_styles["navbar"],
-        "backdrop_filter": glass_effects["navbar"]["dark"]["backdrop_filter"],
-        "background_color": glass_effects["navbar"]["dark"]["background"],
-        "border": f"1px solid {glass_effects['navbar']['dark']['border_color']}",
+        "backdrop_filter": glass_effects["navbar"]["backdrop_filter"],
+        "background_color": glass_effects["navbar"]["background"],
+        "border": f"1px solid {glass_effects['navbar']['border_color']}",
         "box_shadow": shadows["sm"],
         "border_radius": spacing['3'],
+        "height": "80px",
+        "width": "100%",
     }
     
     navbar_brand = rx.hstack(
-        rx.icon(
-            "message-square-text",
-            mr = spacing['2'],
-            color = text_colors["white"],
-            font_size = font_sizes["lg"]
-        ),
         rx.text(
             "AutoReply",
             style = {
                 **apply_text_style('h5'),
-                "background_image": gradients["primary_to_secondary"],
+                "background_image": gradients["sand"],
                 "background_clip": "text",
                 "-webkit-background-clip": "text",
                 "color": "transparent",
                 "-webkit-text-fill-color": "transparent",
-                "font_size": font_sizes["xl"]
+                "font_size": font_sizes["lg"]
             }
         ),
         align_items = "center",
@@ -47,45 +44,45 @@ def navbar() -> rx.Component:
     desktop_nav = rx.hstack(
         rx.button(
             "Inicio",
-            font_size = font_sizes["lg"],
+            font_size = font_sizes["base"],
             style = {
                 **apply_button_style("link"),
-                "color": dark_mode["text"]["muted"],
+                "color": text_colors["default"],
                 "_hover": {
-                    "color": text_colors["white"],
+                    "color": text_colors["subtle"],
                 }
             }
         ),
         rx.button(
             "Características",
-            font_size = font_sizes["lg"],
+            font_size = font_sizes["base"],
             style = {
                 **apply_button_style("link"),
-                "color": dark_mode["text"]["muted"],
+                "color": text_colors["default"],
                 "_hover": {
-                    "color": text_colors["white"],
+                    "color": text_colors["subtle"],
                 }
             }
         ),
         rx.button(
             "Planes",
-            font_size = font_sizes["lg"],
+            font_size = font_sizes["base"],
             style = {
                 **apply_button_style("link"),
-                "color": dark_mode["text"]["muted"],
+                "color": text_colors["default"],
                 "_hover": {
-                    "color": text_colors["white"],
+                    "color": text_colors["subtle"],
                 }
             }
         ),
         rx.button(
             "Contacto",
-            font_size = font_sizes["lg"],
+            font_size = font_sizes["base"],
             style = {
                 **apply_button_style("link"),
-                "color": dark_mode["text"]["muted"],
+                "color": text_colors["default"],
                 "_hover": {
-                    "color": text_colors["white"],
+                    "color": text_colors["subtle"],
                 }
             }
         ),
@@ -104,8 +101,8 @@ def navbar() -> rx.Component:
     mobile_menu_button = rx.button(
         rx.cond(
             NavbarState.is_menu_open,
-            rx.icon("x", font_size = font_sizes["xl"], color = text_colors['white']),  
-            rx.icon("menu", font_size = font_sizes["xl"], color = text_colors['white'])  
+            rx.icon("x", font_size = font_sizes["xl"], color = text_colors['subtle']),  
+            rx.icon("menu", font_size = font_sizes["xl"], color = text_colors['subtle'])  
         ),
         on_click = NavbarState.toggle_menu,
         style = {
@@ -126,9 +123,9 @@ def navbar() -> rx.Component:
                     **apply_button_style("ghost"),
                     "justify_content": "flex-start",
                     "padding_y": spacing["2"],
-                    "color": dark_mode["text"]["muted"],
+                    "color": text_colors["default"],
                     "_hover": {
-                        "color": text_colors["white"],
+                        "color": text_colors["subtle"],
                     }
                 }
             ),
@@ -140,9 +137,9 @@ def navbar() -> rx.Component:
                     **apply_button_style("ghost"),
                     "justify_content": "flex-start",
                     "padding_y": spacing["2"],
-                    "color": dark_mode["text"]["muted"],
+                    "color": text_colors["default"],
                     "_hover": {
-                        "color": text_colors["white"],
+                        "color": text_colors["subtle"],
                     }
                 }
             ),
@@ -154,9 +151,9 @@ def navbar() -> rx.Component:
                     **apply_button_style("ghost"),
                     "justify_content": "flex-start",
                     "padding_y": spacing["2"],
-                    "color": dark_mode["text"]["muted"],
+                    "color": text_colors["default"],
                     "_hover": {
-                        "color": text_colors["white"],
+                        "color": text_colors["subtle"],
                     }
                 }
             ),
@@ -168,9 +165,9 @@ def navbar() -> rx.Component:
                     **apply_button_style("ghost"),
                     "justify_content": "flex-start",
                     "padding_y": spacing["2"],
-                    "color": dark_mode["text"]["muted"],
+                    "color": text_colors["default"],
                     "_hover": {
-                        "color": text_colors["white"],
+                        "color": text_colors["subtle"],
                     }
                 }
             ),
@@ -203,12 +200,13 @@ def navbar() -> rx.Component:
                 justify_content = "space-between",
                 align_items = "center",
                 width = "100%",
-                padding_y = 0,
-                padding_x = spacing['4'],
+                padding_y = spacing['5'],
+                padding_x = "0",
+                height = "66px",
             ),
             style = glassy_navbar_style,
             position = "sticky",
-            top = "0",
+            top = "0",  
             z_index = "1000",
             width = "100%",
         ),
@@ -219,10 +217,11 @@ def navbar() -> rx.Component:
                 position = "absolute",
                 top = "100%",
                 left = "0",
+                right = "0",
                 width = "100%",
-                background_color = glass_effects["navbar"]["dark"]["background"],
-                backdrop_filter = glass_effects["navbar"]["dark"]["backdrop_filter"],
-                border_bottom = f"1px solid {glass_effects['navbar']['dark']['border_color']}",
+                background_color = glass_effects["navbar"]["background"],
+                backdrop_filter = glass_effects["navbar"]["backdrop_filter"],
+                border_bottom = f"1px solid {glass_effects['navbar']['border_color']}",
                 box_shadow = shadows["sm"],
                 z_index = "999",  
                 display = ["block", "block", "none", "none"], 

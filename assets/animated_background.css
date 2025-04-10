@@ -1,96 +1,29 @@
-/* Modo oscuro - Fondo tipo Vercel con cuadrícula animada */
-.animated-background {
+/* Gradiente animado con tonos melocotón y beige cálido */
+
+/* Fondo principal con gradiente animado */
+.gradient-bg {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #f5f0e6, /* Sand base original */
+    #ffefe0, /* Melocotón claro */
+    #ffe8d1, /* Tono durazno */
+    #f8e8cc, /* Beige amarillento */
+    #f7e5c3  /* Beige cálido */
+  );
+  background-size: 300% 300%;
+  animation: softGradient 18s ease infinite;
   z-index: -1;
-  background: linear-gradient(145deg, #0f172a, #1e1e2e);
-  background-size: 400% 400%;
-  animation: subtle-shift 15s ease infinite;
 }
 
-/* Overlay de cuadrícula con movimiento diagonal */
-.grid-overlay {
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  background-size: 40px 40px;
-  background-image: 
-    radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  animation: diagonal-move 120s linear infinite;
-  pointer-events: none;
-}
-
-/* Efectos de luz con blur */
-.light-effect {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.08;  /* Reducida la opacidad para que sea más sutil */
-  pointer-events: none;
-  transition: background 5s ease;  /* Transición suave para cambios de color */
-}
-
-.light-effect-1 {
-  top: 20%;
-  left: 15%;
-  width: 40%;
-  height: 40%;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
-  animation: float-light-1 25s ease-in-out infinite alternate, color-shift-1 30s infinite alternate;
-}
-
-.light-effect-2 {
-  top: 50%;
-  right: 20%;
-  width: 35%;
-  height: 35%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
-  animation: float-light-2 28s ease-in-out infinite alternate, color-shift-2 40s infinite alternate;
-}
-
-.light-effect-3 {
-  bottom: 10%;
-  left: 30%;
-  width: 45%;
-  height: 45%;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
-  animation: float-light-3 32s ease-in-out infinite alternate, color-shift-3 35s infinite alternate;
-}
-
-/* Versión para modo claro */
-.light-mode .animated-background {
-  background: linear-gradient(145deg, #f8fafc, #f1f5f9);
-  background-size: 400% 400%;
-}
-
-.light-mode .grid-overlay {
-  background-image: 
-    radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-}
-
-.light-mode .light-effect {
-  opacity: 0.05;  /* Aún más sutil en modo claro */
-}
-
-.light-mode .light-effect-1 {
-  animation: float-light-1 25s ease-in-out infinite alternate, color-shift-1-light 30s infinite alternate;
-}
-
-.light-mode .light-effect-2 {
-  animation: float-light-2 28s ease-in-out infinite alternate, color-shift-2-light 40s infinite alternate;
-}
-
-.light-mode .light-effect-3 {
-  animation: float-light-3 32s ease-in-out infinite alternate, color-shift-3-light 35s infinite alternate;
-}
-
-@keyframes subtle-shift {
+/* Animación del gradiente principal - más lenta y suave */
+@keyframes softGradient {
   0% {
     background-position: 0% 50%;
   }
@@ -102,131 +35,216 @@
   }
 }
 
-@keyframes diagonal-move {
+/* Ondas suaves en tonos melocotón en lugar de efectos de brillo */
+.wave-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Primera onda en tono melocotón claro */
+.wave-effect-1 {
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgba(255, 225, 200, 0.4) 0%,
+    rgba(255, 225, 200, 0) 70%
+  );
+  animation: gentleWave 15s ease-in-out infinite;
+}
+
+/* Segunda onda en tono durazno */
+.wave-effect-2 {
+  background: radial-gradient(
+    ellipse at 70% 60%,
+    rgba(252, 218, 190, 0.35) 0%,
+    rgba(252, 218, 190, 0) 65%
+  );
+  animation: gentleWave 18s ease-in-out infinite reverse;
+}
+
+/* Tercera onda en tono beige cálido */
+.wave-effect-3 {
+  background: radial-gradient(
+    ellipse at 50% 70%,
+    rgba(245, 225, 190, 0.3) 0%,
+    rgba(245, 225, 190, 0) 60%
+  );
+  animation: gentleWave 20s ease-in-out infinite alternate;
+}
+
+/* Animación suave de ondas */
+@keyframes gentleWave {
   0% {
-    transform: translate(0, 0);
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(-2%, 2%);
   }
   100% {
-    transform: translate(-33.33%, -33.33%);
+    transform: scale(1) translate(0, 0);
   }
 }
 
-/* Animaciones de flotación más sutiles */
-@keyframes float-light-1 {
+/* Grid overlay con tono melocotón más integrado */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(233, 196, 168, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 196, 168, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Puntos decorativos sutiles en tonos melocotón */
+.dot-accent {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseEffect 8s ease-in-out infinite alternate;
+}
+
+.dot-accent-1 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  right: 15%;
+  background-color: rgba(255, 213, 180, 0.45);
+  animation-delay: 0s;
+}
+
+.dot-accent-2 {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  left: 10%;
+  background-color: rgba(250, 224, 195, 0.4);
+  animation-delay: 3s;
+}
+
+.dot-accent-3 {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 30%;
+  background-color: rgba(245, 218, 185, 0.35);
+  animation-delay: 1.5s;
+}
+
+/* Animación sutil de pulso */
+@keyframes pulseEffect {
   0% {
-    transform: translate(0, 0);
+    opacity: 0.3;
+    transform: scale(0.95);
   }
   100% {
-    transform: translate(3%, 3%);  /* Movimiento reducido */
+    opacity: 0.5;
+    transform: scale(1.05);
   }
 }
 
-@keyframes float-light-2 {
+/* Estilos para tarjetas o secciones en el SaaS con efecto de vidrio esmerilado */
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px rgba(44, 40, 36, 0.06);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(44, 40, 36, 0.1);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Estilos para botones que combinan con el tema */
+.btn-primary {
+  background-color: #e8a87c; /* Color melocotón para botones */
+  color: #2c2824;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background-color: #e09a6a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(232, 168, 124, 0.25);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+/* Acento elegante para elementos destacados - ajustado a la paleta melocotón */
+.featured-element {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ffefe0, #e8a87c, #f7e5c3);
+  border-image-slice: 1;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.featured-element:hover {
+  transform: translateY(-3px);
+}
+
+/* Animación sutil para los elementos cuando entran en el viewport */
+@keyframes fadeInUp {
   0% {
-    transform: translate(0, 0);
+    opacity: 0;
+    transform: translateY(20px);
   }
   100% {
-    transform: translate(-3%, 3%);  /* Movimiento reducido */
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes float-light-3 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(3%, -3%);  /* Movimiento reducido */
-  }
+.fade-in-element {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Animaciones de cambio de color - Modo oscuro */
-@keyframes color-shift-1 {
-  0% {
-    background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(192, 132, 252, 0.8), rgba(192, 132, 252, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.8), rgba(34, 211, 238, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(96, 165, 250, 0.8), rgba(96, 165, 250, 0));
-  }
-}
-
-@keyframes color-shift-2 {
-  0% {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.8), rgba(236, 72, 153, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(79, 70, 229, 0.8), rgba(79, 70, 229, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
-  }
-}
-
-@keyframes color-shift-3 {
-  0% {
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.7), rgba(16, 185, 129, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.7), rgba(99, 102, 241, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.7), rgba(14, 165, 233, 0));
-  }
-}
-
-/* Animaciones de cambio de color - Modo claro */
-@keyframes color-shift-1-light {
-  0% {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.4), rgba(168, 85, 247, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.4), rgba(6, 182, 212, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0));
-  }
-}
-
-@keyframes color-shift-2-light {
-  0% {
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.4), rgba(124, 58, 237, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(219, 39, 119, 0.4), rgba(219, 39, 119, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(67, 56, 202, 0.4), rgba(67, 56, 202, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.4), rgba(124, 58, 237, 0));
-  }
-}
-
-@keyframes color-shift-3-light {
-  0% {
-    background: radial-gradient(circle, rgba(2, 132, 199, 0.4), rgba(2, 132, 199, 0));
-  }
-  33% {
-    background: radial-gradient(circle, rgba(5, 150, 105, 0.4), rgba(5, 150, 105, 0));
-  }
-  66% {
-    background: radial-gradient(circle, rgba(79, 70, 229, 0.4), rgba(79, 70, 229, 0));
-  }
-  100% {
-    background: radial-gradient(circle, rgba(2, 132, 199, 0.4), rgba(2, 132, 199, 0));
-  }
-}
+/* Delays para crear un efecto escalonado */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
