@@ -7,7 +7,7 @@ def header_text(size: str = "h2") -> rx.Component:
             "Automatiza tus respuestas en ", 
             rx.text.strong(
                 "WhatsApp",
-                background_image = gradients["whatsapp"],
+                background_image = gradients["success"],  # Cambiamos "whatsapp" por "success" que sí existe
                 background_clip = "text",
                 color = "transparent",
                 font_weight = "bold"
@@ -27,7 +27,7 @@ def header_text(size: str = "h2") -> rx.Component:
             "Automatiza tus respuestas en ", 
             rx.text.strong(
                 "WhatsApp",
-                background_image = gradients["whatsapp"],
+                background_image = gradients["success"],  # Cambiamos "whatsapp" por "success" que sí existe
                 background_clip = "text",
                 color = "transparent",
                 font_weight = "bold"
@@ -47,7 +47,7 @@ def header_text(size: str = "h2") -> rx.Component:
             "Automatiza tus respuestas en ", 
             rx.text.strong(
                 "WhatsApp",
-                background_image = gradients["whatsapp"],
+                background_image = gradients["success"],  # Cambiamos "whatsapp" por "success" que sí existe
                 background_clip = "text",
                 color = "transparent",
                 font_weight = "bold"
